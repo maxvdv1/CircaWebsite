@@ -65,7 +65,7 @@
   position: relative;
   display: flex;
   justify-content: center;
-  z-index: 4; /* in front of the seam: the phone stands on the next surface */
+  z-index: 2; /* behind the seam (z 3): the phone's glow and shadow stop at the wave */
 }
 .hero-phone {
   position: relative;
