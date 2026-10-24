@@ -1,0 +1,113 @@
+/* ============================================================
+   Circa web design tokens
+   Brand values from the brief; amber and the type faces from the iOS app
+   (CircaPalette.swift, CircaTypography.swift).
+   ============================================================ */
+
+@font-face {
+  /* Metric-matched fallback so the swap to Plus Jakarta Sans does not shift layout. */
+  font-family: 'Jakarta Fallback';
+  src: local('Arial'), local('Helvetica Neue'), local('Helvetica');
+  size-adjust: 104%;
+  ascent-override: 96%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+
+:root {
+  /* Fixed brand values */
+  --circa-blue: #3478ff;
+  --circa-blue-hover: #4a87ff;
+  --circa-blue-pressed: #2463e6;
+  --electric: #5b8cff;
+  --amber: #f2ba5c;
+  --amber-bright: #ffc94a;
+  --navy-950: #061126;
+  --navy-900: #091a38;
+  --navy-800: #102344;
+  --navy-700: #16305c;
+  --midnight: #0a1530;
+  --white: #ffffff;
+  --paper-2: #f6f8fc;
+  --line-light: #e8edf5;
+  --slate: #64748b;
+  --mist: #a7b7d1;
+
+  /* Accuracy (in-app result language) */
+  --acc-close: #3ddc97;
+  --acc-near: #5b8cff;
+  --acc-far: #ff6b6b;
+
+  /* Type */
+  --font-sans: 'Plus Jakarta Sans Variable', 'Jakarta Fallback', system-ui, -apple-system, sans-serif;
+  --fs-hero: clamp(3.5rem, 2rem + 5.4vw, 6.4rem);
+  --fs-display: clamp(2.35rem, 1.5rem + 3.2vw, 4.4rem);
+  --fs-h3: clamp(1.15rem, 1rem + 0.4vw, 1.35rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.875rem;
+  --tracking-tight: -0.045em;
+  --tracking-display: -0.035em;
+  --tracking-eyebrow: 0.32em;
+
+  /* Space & shape */
+  --gutter: clamp(16px, 4vw, 48px);
+  --container: 1240px;
+  --section-pad: clamp(88px, 11vw, 168px);
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 160ms;
+  --dur-med: 320ms;
+  --dur-theme: 450ms;
+
+  /* Section grounds (theme-dependent; dark defaults) */
+  --bg-hero: var(--navy-950);
+  --bg-modes: var(--white);
+  --bg-social: var(--paper-2);
+  --bg-daily: var(--navy-900);
+  --bg-faq: var(--navy-950);
+  --bg-cta: var(--navy-950);
+}
+
+[data-theme='light'] {
+  --bg-hero: var(--paper-2);
+  --bg-modes: var(--white);
+  --bg-social: var(--paper-2);
+  --bg-daily: var(--white);
+  --bg-faq: var(--paper-2);
+  --bg-cta: var(--navy-950);
+}
+
+/* ---- Surface schemes: a section is light, dark, or follows the theme ---- */
+.scheme-dark,
+[data-theme='dark'] .scheme-auto {
+  --s-text: var(--white);
+  --s-text-2: var(--mist);
+  --s-text-3: #7d8eac;
+  --s-border: rgba(255, 255, 255, 0.1);
+  --s-card: var(--navy-800);
+  --s-card-2: #0d1d3c;
+  --s-accent-text: #6b9bff;
+  --s-focus: #8fb4ff;
+  --s-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.6);
+  color: var(--s-text);
+}
+
+.scheme-light,
+[data-theme='light'] .scheme-auto {
+  --s-text: var(--midnight);
+  --s-text-2: var(--slate);
+  --s-text-3: #5f6e85;
+  --s-border: var(--line-light);
+  --s-card: var(--white);
+  --s-card-2: var(--paper-2);
+  --s-accent-text: #1f5fe0;
+  --s-focus: var(--circa-blue);
+  --s-shadow: 0 30px 70px -35px rgba(10, 21, 48, 0.28);
+  color: var(--s-text);
+}

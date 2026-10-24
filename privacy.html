@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="nl" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <script>
+      (function () {
+        var r = document.documentElement, t = 'dark', l = 'nl'
+        var ok = function (v) { return v === 'nl' || v === 'en' || v === 'es' }
+        try { var s = localStorage.getItem('circa-theme'); if (s === 'light' || s === 'dark') t = s } catch (e) {}
+        try {
+          var q = new URLSearchParams(location.search).get('lang')
+          var sl = null; try { sl = localStorage.getItem('circa-lang') } catch (e) {}
+          var n = (navigator.language || '').slice(0, 2).toLowerCase()
+          l = ok(q) ? q : ok(sl) ? sl : ok(n) ? n : 'nl'
+        } catch (e) {}
+        r.dataset.theme = t
+        r.style.colorScheme = t
+        r.lang = l
+      })()
+    </script>
+    <title>Privacyverklaring · Circa</title>
+    <meta name="description" content="Hoe Circa met je persoonsgegevens omgaat." />
+    <link rel="canonical" href="https://letsplaycirca.com/privacy" />
+    <meta name="theme-color" content="#061126" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Circa" />
+    <meta property="og:url" content="https://letsplaycirca.com/privacy" />
+    <meta property="og:title" content="Privacyverklaring · Circa" />
+    <meta property="og:image" content="https://letsplaycirca.com/og-image.png" />
+  </head>
+  <body>
+    <div id="root" data-doc="privacy"></div>
+    <noscript><p style="padding:24px;font-family:system-ui">Zet JavaScript aan om deze pagina te lezen.</p></noscript>
+    <script type="module" src="/src/legal-main.tsx"></script>
+  </body>
+</html>

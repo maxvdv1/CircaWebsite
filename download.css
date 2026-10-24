@@ -1,0 +1,47 @@
+.cta {
+  background: var(--bg-cta);
+  padding: clamp(72px, 8vw, 130px) 0 clamp(88px, 10vw, 150px);
+  overflow: clip;
+  isolation: isolate;
+  text-align: center;
+}
+.cta__light {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(40% 46% at 50% 34%, rgba(52, 120, 255, 0.3), transparent 70%),
+    radial-gradient(70% 40% at 50% 110%, rgba(52, 120, 255, 0.16), transparent 70%);
+}
+.cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cta__mark {
+  position: relative;
+  width: clamp(190px, 26vw, 340px);
+  aspect-ratio: 1;
+  margin-bottom: clamp(36px, 4vw, 56px);
+}
+/* One thin ring of light, borrowed from the app's launch loader. */
+.cta__ring {
+  position: absolute;
+  inset: -14%;
+  border-radius: 50%;
+  border: 1.5px solid rgba(91, 140, 255, 0.28);
+  -webkit-mask: conic-gradient(from 20deg, #000 0 32%, transparent 52% 100%);
+  mask: conic-gradient(from 20deg, #000 0 32%, transparent 52% 100%);
+}
+.cta__title {
+  font-size: var(--fs-display);
+  font-weight: 800;
+  letter-spacing: var(--tracking-display);
+  line-height: 1.02;
+  margin-bottom: clamp(32px, 3.5vw, 48px);
+}
+
+/* In dark mode the FAQ is already navy; the seam would be invisible, so hide it. */
+[data-theme='dark'] .seam--cta {
+  display: none;
+}

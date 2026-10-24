@@ -1,0 +1,78 @@
+.social {
+  background: var(--bg-social);
+  padding: var(--section-pad) 0 calc(var(--section-pad) + 40px);
+  overflow: clip;
+}
+.social__head {
+  text-align: center;
+  max-width: 820px;
+  margin-inline: auto;
+}
+.social__head .eyebrow {
+  margin-bottom: 18px;
+}
+.social__muted {
+  color: var(--s-text-3);
+}
+
+.social__stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(24px, 6vw, 96px);
+  margin-top: clamp(56px, 7vw, 96px);
+}
+.social__phone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.social__phone .device {
+  filter: drop-shadow(0 40px 50px rgba(10, 21, 48, 0.28));
+}
+.social__phone--left {
+  transform: rotate(-3deg);
+}
+.social__phone--right {
+  transform: rotate(3deg);
+  margin-top: 72px;
+}
+.social__caption {
+  max-width: 260px;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--s-text-2);
+}
+.social__caption b {
+  display: block;
+  color: var(--s-text);
+  font-weight: 750;
+  font-size: 1.02rem;
+}
+
+@media (max-width: 760px) {
+  .social__stage {
+    gap: 0;
+  }
+  .social__phone .device {
+    --s: 0.45 !important;
+  }
+  .social__phone--left {
+    margin-right: -10px;
+    z-index: 1;
+  }
+  .social__phone--right {
+    margin-top: 56px;
+  }
+  .social__caption {
+    max-width: 170px;
+    font-size: 0.85rem;
+  }
+}
+@media (max-width: 380px) {
+  .social__phone .device {
+    --s: 0.41 !important;
+  }
+}
