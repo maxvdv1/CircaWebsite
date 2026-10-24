@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="nl" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <!-- Theme before first paint: dark by default, the visitor's saved choice wins. No flash. -->
+    <script>
+      (function () {
+        var r = document.documentElement, t = 'dark', l = 'nl'
+        var ok = function (v) { return v === 'nl' || v === 'en' || v === 'es' }
+        try { var s = localStorage.getItem('circa-theme'); if (s === 'light' || s === 'dark') t = s } catch (e) {}
+        try {
+          var q = new URLSearchParams(location.search).get('lang')
+          var sl = null; try { sl = localStorage.getItem('circa-lang') } catch (e) {}
+          var n = (navigator.language || '').slice(0, 2).toLowerCase()
+          l = ok(q) ? q : ok(sl) ? sl : ok(n) ? n : 'nl'
+        } catch (e) {}
+        r.dataset.theme = t
+        r.style.colorScheme = t
+        r.lang = l
+      })()
+    </script>
+    <title>Circa — Schat. Daag uit. Win.</title>
+    <meta name="description" content="Daag je vrienden uit met dagelijkse inschattingsvragen, 1v1-duels en groepsspellen. Ontdek wie er het dichtst bij zit." />
+    <link rel="canonical" href="https://letsplaycirca.com/" />
+    <link rel="alternate" hreflang="nl" href="https://letsplaycirca.com/?lang=nl" />
+    <link rel="alternate" hreflang="en" href="https://letsplaycirca.com/?lang=en" />
+    <link rel="alternate" hreflang="es" href="https://letsplaycirca.com/?lang=es" />
+    <link rel="alternate" hreflang="x-default" href="https://letsplaycirca.com/" />
+    <meta name="theme-color" content="#061126" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#061126" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Circa" />
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:locale:alternate" content="en_GB" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:url" content="https://letsplaycirca.com/" />
+    <meta property="og:title" content="Circa — Schat. Daag uit. Win." />
+    <meta property="og:description" content="Daag je vrienden uit met dagelijkse inschattingsvragen, 1v1-duels en groepsspellen. Ontdek wie er het dichtst bij zit." />
+    <meta property="og:image" content="https://letsplaycirca.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Circa: Schat. Daag uit. Win." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Circa — Schat. Daag uit. Win." />
+    <meta name="twitter:description" content="Daag je vrienden uit met dagelijkse inschattingsvragen, 1v1-duels en groepsspellen. Ontdek wie er het dichtst bij zit." />
+    <meta name="twitter:image" content="https://letsplaycirca.com/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://letsplaycirca.com/#website",
+            "url": "https://letsplaycirca.com/",
+            "name": "Circa",
+            "inLanguage": ["nl-NL", "en-GB", "es-ES"]
+          },
+          {
+            "@type": "MobileApplication",
+            "name": "Circa",
+            "url": "https://letsplaycirca.com/",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "iOS",
+            "inLanguage": ["nl-NL", "en-GB", "es-ES"],
+            "description": "Daag je vrienden uit met dagelijkse inschattingsvragen, 1v1-duels en groepsspellen. Ontdek wie er het dichtst bij zit."
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <p style="padding:24px;font-family:system-ui;color:#fff;background:#061126">Circa: Schat. Daag uit. Win. Zet JavaScript aan om de site te bekijken.</p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

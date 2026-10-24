@@ -1,0 +1,133 @@
+/* Device geometry in real points; --s scales the whole thing. */
+.device {
+  --w: 417px;
+  --h: 876px;
+  position: relative;
+  margin: 0;
+  width: calc(var(--w) * var(--s));
+  height: calc(var(--h) * var(--s));
+  flex: none;
+}
+
+.iphone {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: var(--w);
+  height: var(--h);
+  transform: scale(var(--s));
+  transform-origin: 0 0;
+}
+
+/* The side of the phone: a darker, slightly offset silhouette that reads as thickness. */
+.iphone__edge {
+  position: absolute;
+  inset: 0;
+  border-radius: 68px;
+  background: linear-gradient(90deg, #2a2d34, #5d626d 30%, #8b909b 55%, #3c3f47);
+  transform: translate(var(--edge-x, 9px), var(--edge-y, 5px));
+}
+
+.iphone__frame {
+  position: absolute;
+  inset: 0;
+  border-radius: 68px;
+  padding: 4px;
+  /* Brushed titanium: cool greys with a lit top-left and a darker lower-right. */
+  background:
+    linear-gradient(145deg, #f2f3f6 0%, #b9bdc6 18%, #7c818c 42%, #a9aeb8 62%, #5f636d 84%, #9ca1ab 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+    inset 0 0 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.iphone__btn {
+  position: absolute;
+  width: 5px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #5c606a, #c5c9d1 60%, #7b7f89);
+}
+.iphone__btn--action { left: -3px; top: 150px; height: 34px; }
+.iphone__btn--up { left: -3px; top: 212px; height: 62px; }
+.iphone__btn--down { left: -3px; top: 290px; height: 62px; }
+.iphone__btn--power { right: -3px; top: 250px; height: 100px; }
+
+.iphone__bezel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 64px;
+  padding: 8px;
+  background: #050608;
+  box-shadow: inset 0 0 0 1.5px #1b1d22;
+}
+
+.iphone__screen {
+  position: relative;
+  width: 393px;
+  height: 852px;
+  border-radius: 56px;
+  overflow: hidden;
+  background: var(--navy-950);
+  isolation: isolate;
+  /* Screens are designed in points; the page font stays, sizes are absolute. */
+  font-size: 15px;
+  line-height: 1.35;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.iphone__island {
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  width: 124px;
+  height: 36px;
+  margin-left: -62px;
+  border-radius: 20px;
+  background: #000;
+  z-index: 50;
+}
+.iphone__island::after {
+  /* the camera */
+  content: '';
+  position: absolute;
+  right: 22px;
+  top: 12px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #2b3a63, #0a0d16 60%);
+}
+
+.iphone__home {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  width: 136px;
+  height: 5px;
+  margin-left: -68px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.85);
+  z-index: 50;
+}
+.iphone__screen:has(.is-light) .iphone__home {
+  background: rgba(10, 21, 48, 0.85);
+}
+
+/* Glass: one soft diagonal sheen, nothing more. */
+.iphone__glare {
+  position: absolute;
+  inset: 8px;
+  border-radius: 56px;
+  pointer-events: none;
+  background: linear-gradient(
+    118deg,
+    rgba(255, 255, 255, 0.13) 0%,
+    rgba(255, 255, 255, 0.04) 22%,
+    rgba(255, 255, 255, 0) 38%,
+    rgba(255, 255, 255, 0) 70%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  mix-blend-mode: screen;
+  z-index: 60;
+}

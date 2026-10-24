@@ -1,0 +1,38 @@
+.lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.lang__flag {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.55;
+  transition:
+    opacity var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+.lang__flag svg {
+  width: 22px;
+  height: 15px;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px var(--s-border);
+}
+.lang__flag:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+.lang__flag[aria-pressed='true'] {
+  opacity: 1;
+}
+.lang__flag[aria-pressed='true'] svg {
+  box-shadow:
+    0 0 0 1.5px var(--s-bg-ring, transparent),
+    0 0 0 3px var(--circa-blue);
+}

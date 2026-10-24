@@ -1,0 +1,92 @@
+.store-badges__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.store-badges--center .store-badges__row {
+  justify-content: center;
+}
+.store-badges--center {
+  text-align: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 56px;
+  padding: 0 20px 0 16px;
+  border-radius: 13px;
+  background: #000;
+  color: #fff;
+  border: 1px solid #a6a6a6;
+  text-decoration: none;
+  line-height: 1;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-med) var(--ease-out);
+}
+a.badge:hover {
+  transform: translateY(-2px);
+  border-color: #d6d6d6;
+  box-shadow: 0 14px 30px -14px rgba(0, 0, 0, 0.6);
+}
+a.badge:active {
+  transform: translateY(0);
+}
+.badge--soon {
+  cursor: default;
+}
+.badge__glyph {
+  flex: none;
+}
+.badge__text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.badge__small {
+  font-size: 0.69rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.badge__big {
+  font-size: 1.42rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.store-badges__note {
+  margin-top: 12px;
+  font-size: 0.8125rem;
+  color: var(--s-text-3);
+}
+
+@media (max-width: 480px) {
+  .store-badges__row {
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+  .badge {
+    height: 50px;
+    padding: 0 14px 0 12px;
+    gap: 8px;
+    border-radius: 11px;
+  }
+  .badge__glyph {
+    width: 22px;
+    height: 22px;
+  }
+  .badge__big {
+    font-size: 1.12rem;
+  }
+  .badge__small {
+    font-size: 0.6rem;
+  }
+}
+@media (max-width: 350px) {
+  .store-badges__row {
+    flex-wrap: wrap;
+  }
+}

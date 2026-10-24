@@ -1,0 +1,160 @@
+/* The app's map duotone: deep sage-teal sea, warm-sand land (CircaMap in CircaColors.swift). */
+.wm {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #16352b;
+  touch-action: pan-y;
+  outline: none;
+  z-index: 0;
+}
+.wm.is-interactive {
+  cursor: grab;
+}
+.wm.is-dragging {
+  cursor: grabbing;
+}
+.wm:focus-visible {
+  box-shadow: inset 0 0 0 3px #8fb4ff;
+}
+.wm__layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+.wm__svg {
+  display: block;
+  max-width: none;
+}
+.wm__land {
+  fill: #f0e4cc;
+}
+.wm__borders {
+  fill: none;
+  stroke: rgba(22, 53, 43, 0.28);
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+}
+.wm__lines line {
+  stroke: rgba(242, 186, 92, 0.85);
+  stroke-width: 2;
+  stroke-dasharray: 4 6;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  opacity: 0;
+  transition: opacity 400ms var(--ease-out);
+}
+.wm.is-revealed .wm__lines line {
+  opacity: 1;
+}
+
+/* Pins live in map space but keep their size whatever the zoom. */
+.wm-pin {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  transform: translateY(-14px) scale(calc(1 / var(--z, 1)));
+  transition:
+    opacity 300ms var(--ease-out),
+    transform 450ms var(--ease-out);
+}
+.wm.is-revealed .wm-pin {
+  opacity: 1;
+  transform: scale(calc(1 / var(--z, 1)));
+}
+.wm-pin__body {
+  position: absolute;
+  left: -16px;
+  bottom: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50% 50% 50% 4px;
+  transform: rotate(-45deg);
+  background: var(--pin, #fff);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+  display: grid;
+  place-items: center;
+}
+.wm-pin__body img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  transform: rotate(45deg);
+}
+.wm-pin::after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--pin, #fff);
+  box-shadow: 0 0 0 2px #16352b;
+}
+.wm-pin--truth {
+  --pin: var(--amber);
+  z-index: 3;
+}
+.wm-pin--truth .wm-pin__body {
+  width: 34px;
+  height: 34px;
+  left: -17px;
+  border: 3px solid #fff;
+}
+.wm-pin--you {
+  --pin: var(--circa-blue);
+  z-index: 2;
+}
+.wm-pin--friend {
+  z-index: 1;
+}
+
+/* The fixed pin in the middle: yours, until you lock it in. */
+.wm__crosshair {
+  position: absolute;
+  left: 196.5px;
+  top: 450px;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  transition: opacity 250ms;
+}
+.wm__crosshair-pin {
+  position: absolute;
+  left: -20px;
+  bottom: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50% 50% 50% 4px;
+  transform: rotate(-45deg);
+  background: var(--circa-blue);
+  border: 4px solid #fff;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.45);
+  transition: transform 200ms var(--ease-out);
+}
+.wm.is-dragging .wm__crosshair-pin {
+  transform: translate(4px, -10px) rotate(-45deg);
+}
+.wm__crosshair-dot {
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(6, 17, 38, 0.45);
+}
+.wm.is-revealed .wm__crosshair {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wm-pin,
+  .wm__lines line {
+    transition: none;
+  }
+}
